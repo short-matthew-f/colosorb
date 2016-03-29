@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.dish {
+  position: relative;
+  overflow: hidden;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: black;
+
+  filter: contrast(20);
+  -webkit-filter: contrast(20);
+}
+
+.blob {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(15px);
+  -webkit-filter: blur(15px);
+}
