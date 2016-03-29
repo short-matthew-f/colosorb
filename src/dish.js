@@ -91,10 +91,9 @@ Dish.prototype.mergeBlobs = function (i, j) {
       source = this.blobs[j];
 
 
-  sink.weight = Math.ceil(
+  sink.weight = Math.min(Math.ceil(
     Math.max(source.weight, sink.weight) +
-    Math.sqrt( Math.min(source.weight, sink.weight) )
-  );
+    Math.sqrt( Math.min(source.weight, sink.weight))), 100);
 
   // sink.color = {
   //   r: (sink.color.r + source.color.r) % 256,
