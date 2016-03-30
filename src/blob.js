@@ -15,11 +15,7 @@ Blob.prototype.setWeight = function () {
 };
 
 Blob.prototype.setColor = function () {
-  this.color = {
-    r: Math.random() < 0.5 ? 0 : 223,
-    g: Math.random() < 0.5 ? 0 : 223,
-    b: Math.random() < 0.5 ? 0 : 223
-  }
+  this.color = Color.random();
 }
 
 Blob.prototype.setBounds = function (bounds) {
@@ -129,9 +125,7 @@ Blob.prototype.tick = function () {
 Blob.prototype.updateElement = function () {
   var offset = this.weight / 2;
 
-  this.el.style.background = "rgb(" + this.color.r + "," +
-                                      this.color.g + "," +
-                                      this.color.b + ")";
+  this.el.style.background = this.color;
 
   this.el.style.width  = this.weight + "px";
   this.el.style.height = this.weight + "px";

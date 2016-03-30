@@ -3,37 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Colobsorb</title>
-  <style>
-    html {
-      box-sizing: border-box;
-    }
-
-    *, *::before, *::after {
-      box-sizing: inherit;
-    }
-
-    body {
-      margin: 0;
-      border: 0;
-      padding: 0;
-    }
-
-    .dish {
-      -webkit-filter: url('#goo');
-      filter: url('#goo');
-
-      position:absolute;
-      top:0;
-      left:0;
-      bottom:0;
-      right:0;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="dish">
@@ -50,6 +20,7 @@
     </defs>
   </svg>
 
+  <script src="src/color.js"></script>
   <script src="src/blob.js"></script>
   <script src="src/dish.js"></script>
   <script src="src/game.js"></script>

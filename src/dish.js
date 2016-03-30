@@ -101,11 +101,7 @@ Dish.prototype.mergeBlobs = function (i, j) {
 
   sink.weight = Math.floor(sink.weight + Math.sqrt(source.weight));
 
-  sink.color = {
-    r: Math.max(sink.color.r, source.color.r),
-    g: Math.max(sink.color.g, source.color.g),
-    b: Math.max(sink.color.b, source.color.b)
-  };
+  sink.color = Color.mix(sink.color, source.color);
 
   sink.velocity.x = 0;
   sink.velocity.y = 0;
