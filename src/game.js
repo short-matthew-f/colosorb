@@ -10,7 +10,7 @@
 
   setInterval(function () {
     dish.populateBlobs(2)
-  }, 1000);
+  }, 2000);
 
   tick();
 })()

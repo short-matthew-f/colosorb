@@ -59,13 +59,14 @@ Dish.prototype.bubbleMerge = function () {
       var sink      = this.blobs[i],
           source    = this.blobs[j],
           distance  = sink.distanceTo(source),
-          maxWeight = Math.max(sink.weight, source.weight);
+          maxWeight = Math.max(sink.weight, source.weight),
+          minWeight = Math.min(sink.weight, source.weight);
 
-      if (distance < Math.max(15, Math.abs(sink.weight - source.weight) / 2)) {
+      if (distance < 15 || distance < (maxWeight - minWeight)/2) {
         this.mergeBlobs(i, j);
         absorbed = true;
         i = 0;
-      } else if (distance < maxWeight) {
+      } else if (distance < (maxWeight + minWeight) / 2) {
         var midPoint = {
           x: (sink.position.x + source.position.x) / 2,
           y: (sink.position.y + source.position.y) / 2
