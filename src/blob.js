@@ -16,9 +16,9 @@ Blob.prototype.setWeight = function () {
 
 Blob.prototype.setColor = function () {
   this.color = {
-    r: Math.random() < 0.5 ? 255 : 255,
-    g: Math.random() < 0.5 ? 255 : 255,
-    b: Math.random() < 0.5 ? 255 : 255
+    r: Math.random() < 0.5 ? 0 : 223,
+    g: Math.random() < 0.5 ? 0 : 223,
+    b: Math.random() < 0.5 ? 0 : 223
   }
 }
 

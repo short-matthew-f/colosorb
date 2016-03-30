@@ -87,26 +87,31 @@ Dish.prototype.bubbleMerge = function () {
 };
 
 Dish.prototype.mergeBlobs = function (i, j) {
-  var sink   = this.blobs[i],
-      source = this.blobs[j];
+  var sink, source;
 
+  if (this.blobs[i].weight >= this.blobs[j].weight) {
+    sink   = this.blobs[i];
+    source = this.blobs[j];
+    this.blobs.splice(j, 1);
+  } else {
+    sink   = this.blobs[j];
+    source = this.blobs[i];
+    this.blobs.splice(i, 1);
+  }
 
-  sink.weight = Math.min(Math.ceil(
-    Math.max(source.weight, sink.weight) +
-    Math.sqrt( Math.min(source.weight, sink.weight))), 100);
+  sink.weight = Math.floor(sink.weight + Math.sqrt(source.weight));
 
-  // sink.color = {
-  //   r: (sink.color.r + source.color.r) % 256,
-  //   g: (sink.color.g + source.color.g) % 256,
-  //   b: (sink.color.b + source.color.b) % 256
-  // };
+  sink.color = {
+    r: Math.max(sink.color.r, source.color.r),
+    g: Math.max(sink.color.g, source.color.g),
+    b: Math.max(sink.color.b, source.color.b)
+  };
 
   sink.velocity.x = 0;
   sink.velocity.y = 0;
 
   // remove from the DOM and the array
   source.el.remove();
-  this.blobs.splice(j, 1);
 };
 
 // GAME LOOP

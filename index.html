@@ -3,11 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <title>Colobsorb</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+    .dish {
+      -webkit-filter: url('#goo');
+      filter: url('#goo');
+
+      position:absolute;
+      top:0;
+      left:0;
+      bottom:0;
+      right:0;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+    }
+  </style>
 </head>
 <body>
   <div class="dish">
   </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+    	</filter>
+    </defs>
+  </svg>
+
   <script src="src/blob.js"></script>
   <script src="src/dish.js"></script>
   <script src="src/game.js"></script>
