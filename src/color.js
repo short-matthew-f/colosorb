@@ -5,38 +5,38 @@ var Color = {
   mixingHash: {
     red: {
       red: "red", yellow: "orange", blue: "purple",
-      orange: "orange", purple: "purple", green: "saddlebrown",
-      saddlebrown: "saddlebrown"
+      orange: "orange", purple: "purple", green: "burlywood",
+      burlywood: "burlywood"
     },
     yellow: {
       red: "orange", yellow: "yellow", blue: "green",
-      orange: "orange", purple: "saddlebrown", green: "green",
-      saddlebrown: "saddlebrown"
+      orange: "orange", purple: "burlywood", green: "green",
+      burlywood: "burlywood"
     },
     blue: {
       red: "purple", yellow: "green", blue: "blue",
-      orange: "saddlebrown", purple: "purple", green: "green",
-      saddlebrown: "saddlebrown"
+      orange: "burlywood", purple: "purple", green: "green",
+      burlywood: "burlywood"
     },
     orange: {
-      red: "orange", yellow: "orange", blue: "saddlebrown",
-      orange: "orange", purple: "saddlebrown", green: "saddlebrown",
-      saddlebrown: "saddlebrown"
+      red: "orange", yellow: "orange", blue: "burlywood",
+      orange: "orange", purple: "burlywood", green: "burlywood",
+      burlywood: "burlywood"
     },
     purple: {
-      red: "purple", yellow: "saddlebrown", blue: "purple",
-      orange: "saddlebrown", purple: "purple", green: "saddlebrown",
-      saddlebrown: "saddlebrown"
+      red: "purple", yellow: "burlywood", blue: "purple",
+      orange: "burlywood", purple: "purple", green: "burlywood",
+      burlywood: "burlywood"
     },
     green: {
-      red: "saddlebrown", yellow: "green", blue: "green",
-      orange: "saddlebrown", purple: "saddlebrown", green: "green",
-      saddlebrown: "saddlebrown"
+      red: "burlywood", yellow: "green", blue: "green",
+      orange: "burlywood", purple: "burlywood", green: "green",
+      burlywood: "burlywood"
     },
-    saddlebrown: {
-      red: "saddlebrown", yellow: "saddlebrown", blue: "saddlebrown",
-      orange: "saddlebrown", purple: "saddlebrown", green: "saddlebrown",
-      saddlebrown: "saddlebrown"
+    burlywood: {
+      red: "burlywood", yellow: "burlywood", blue: "burlywood",
+      orange: "burlywood", purple: "burlywood", green: "burlywood",
+      burlywood: "burlywood"
     }
   },
   mix: function (one, two) {

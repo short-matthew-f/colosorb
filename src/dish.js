@@ -17,13 +17,13 @@ Dish.prototype.setListeners = function () {
   var thisDish = this;
 
   this.el.addEventListener('mousedown', function (e) {
-    var target = { x: e.pageX, y: e.pageY };
-    
+    var clickPosition = { x: e.pageX, y: e.pageY };
+
     thisDish.blobs.forEach(function (blob) {
       if (e.shiftKey) {
-        blob.pulseFrom(target);
+        blob.pulseFrom(clickPosition);
       } else {
-        blob.pulseToward(target);
+        blob.pulseToward(clickPosition);
       }
     });
   });
