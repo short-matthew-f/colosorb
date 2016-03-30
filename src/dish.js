@@ -1,4 +1,6 @@
 function Dish () {
+  this.blobs = [];
+
   this.setElement();
   this.setBounds();
   this.populateBlobs();
@@ -12,23 +14,19 @@ Dish.prototype.setElement = function () {
 };
 
 Dish.prototype.setListeners = function () {
-  var dish = this;
-
+  var thisDish = this;
 
   this.el.addEventListener('mousedown', function (e) {
     var target = { x: e.pageX, y: e.pageY };
-    dish.blobs.forEach(function (blob) {
-      blob.pulseFrom(target);
+    
+    thisDish.blobs.forEach(function (blob) {
+      if (e.shiftKey) {
+        blob.pulseFrom(target);
+      } else {
+        blob.pulseToward(target);
+      }
     });
   });
-
-  this.el.addEventListener('mousemove', function (e) {
-    var target = { x: e.pageX, y: e.pageY };
-
-    dish.blobs.forEach(function (blob) {
-      blob.pulseToward(target);
-    });
-  })
 };
 
 Dish.prototype.setBounds = function () {
@@ -41,9 +39,7 @@ Dish.prototype.setBounds = function () {
 };
 
 Dish.prototype.populateBlobs = function (count) {
-  this.blobs = this.blobs || [];
-
-  for (var i = 0; i < (count || 20); i++) {
+  for (var i = 0; i < (count || 8); i++) {
     var currentBlob = new Blob();
     this.blobs.push(currentBlob);
     this.el.appendChild(currentBlob.el);
