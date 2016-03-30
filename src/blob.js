@@ -77,9 +77,9 @@ Blob.prototype.applyFriction = function () {
 Blob.prototype.calculatePulse = function (pos) {
   var vec = { x: this.position.x - pos.x,
               y: this.position.y - pos.y },
-      distance        = Math.sqrt(vec.x * vec.x + vec.y * vec.y),
-      cappedDistance  = Math.min(distance, 300);
-      strength        = 3 - Math.floor(cappedDistance / 100);
+      distance        = 1 + Math.sqrt(vec.x * vec.x + vec.y * vec.y),
+      cappedDistance  = Math.min(distance, 900);
+      strength        = 5 - Math.floor(Math.sqrt(cappedDistance) / 6);
 
   return {
     x: strength * vec.x / distance,
@@ -101,22 +101,22 @@ Blob.prototype.pulseToward = function (pos) {
   this.velocity.y -= pulse.y;
 };
 
-Blob.prototype.capVelocity = function () {
+Blob.prototype.limitVelocity = function () {
   var magnitude = Math.sqrt(
     this.velocity.x * this.velocity.x +
     this.velocity.y * this.velocity.y
   );
 
-  if (magnitude > 3) {
-    this.velocity.x *= 3 / magnitude;
-    this.velocity.y *= 3 / magnitude;
+  if (magnitude > 5) {
+    this.velocity.x *= 5 / magnitude;
+    this.velocity.y *= 5 / magnitude;
   }
 }
 
 // GAME LOOP
 
 Blob.prototype.tick = function () {
-  this.capVelocity();
+  this.limitVelocity();
   this.applyVelocity();
   this.applyFriction();
   this.updateElement();
@@ -129,6 +129,8 @@ Blob.prototype.updateElement = function () {
 
   this.el.style.width  = this.weight + "px";
   this.el.style.height = this.weight + "px";
+
+  this.el.style.zIndex = Math.floor(this.weight);
 
   this.el.style.left = (this.position.x - offset) + "px";
   this.el.style.top  = (this.position.y - offset) + "px";

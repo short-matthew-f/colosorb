@@ -61,7 +61,7 @@ Dish.prototype.bubbleMerge = function () {
           distance  = sink.distanceTo(source),
           maxWeight = Math.max(sink.weight, source.weight);
 
-      if (distance < 15) {
+      if (distance < Math.max(15, Math.abs(sink.weight - source.weight) / 2)) {
         this.mergeBlobs(i, j);
         absorbed = true;
         i = 0;

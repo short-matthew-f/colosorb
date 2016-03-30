@@ -1,20 +1,16 @@
-console.log('stuff');
-
 (function () {
   var dish    = new Dish();
 
   function tick () {
-    window.requestAnimationFrame(tick);
     dish.tick();
+    window.requestAnimationFrame(tick);
   }
 
   var blobCount = 0;
 
   setInterval(function () {
-    blobCount = 1 + (blobCount % 2);
-    dish.populateBlobs(blobCount)
-    console.log(blobCount);
-  }, 2000);
+    dish.populateBlobs(2)
+  }, 1000);
 
   tick();
 })()
